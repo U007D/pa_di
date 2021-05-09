@@ -1,0 +1,51 @@
+[package]
+authors = ["Brad Gibson <brad@tpfs.io>"]
+categories = []
+description = "<describe crate here>"
+edition = "2018"
+keywords = []
+license = "MIT OR Apache-2.0"
+name = "pa_di"
+readme = "README.md"
+repository = "https://github.com/u007d/pa_di"
+version = "0.1.0"
+
+[dependencies]
+thiserror = "1.0.24"
+slog = "2.7.0"
+slog-term = "2.8.0"
+slog-async = "2.6.0"
+teloc = { git = "https://github.com/u007d/teloc" }
+
+[dev-dependencies]
+assert2 = "0.3.5"
+
+[features]
+default = ["logger_slog"]
+logger_slog = []
+
+[profile.dev]
+codegen-units = 1
+debug = true
+debug-assertions = true
+lto = false
+opt-level = 0
+panic = "unwind"
+rpath = false
+
+[profile.release]
+codegen-units = 1
+debug = false
+debug-assertions = false
+lto = true
+opt-level = 3
+panic = "unwind"
+rpath = false
+
+[profile.test]
+codegen-units = 1
+debug = true
+debug-assertions = true
+lto = false
+opt-level = 0
+rpath = false
